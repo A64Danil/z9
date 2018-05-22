@@ -4,3 +4,12 @@ p.done:after {
     font-weight: bold;
     color: #444;
 }
+
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.card .card-body {
+    padding: 20px;
+}

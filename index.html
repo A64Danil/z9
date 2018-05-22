@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="http://pro.qoobeo.ru/qsvgl/css/qoobloader.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -16,49 +16,121 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-            <h1>AJAX City Filter, using handlebars</h1>
-                <p class="">1 задание:<br>
-                    Взять за основу пример `MVС`.<br>
-                    Добавить вкладку `Группы`, при переходе на вкладку, должен отображаться список групп (лого и имена групп), в которых состоит пользователь
-                </p>
-                <p class="">2 задание:<br>
-                    Взять за основу пример `MVС`.<br>
-                    Добавить вкладку `Фото`, при переходе на вкладку, должны отображаться все фото пользователя с количеством лайков, репостов и комментариев каждого фото.
-                </p>
-                <p class="">3 задание (со звездочкой):<br>
-                    Взять за основу результат `ДЗ 2`.<br>
-                    Во вкладке `Фото`, помимо количества лайков, репостов и комментариев, выводить комментарии к каждому фото. Если комментариев к какому-либо фото нет, то, рядом с соответствующим фото, выводить надпись: `К этому фото нет комментариев.`<br>
-                    Каждый комментарий - это фото автора, фио автора, дата комментария, текст комментария
-                </p>
-                <p class="">4 задание (со большой звездочкой):<br>
-                    Взять за основу результат `ДЗ 3`.<br>
-                    Вместо обычного списка всех фото, выводить фото, сгруппированные по альбомам, в которых они состоят.<br>
-                    Например:<br>
-                    Альбом1<br>
-                    фото1<br>
-                    фото2<br>
-                    фото3<br>
-                    <br>
-                    Альбом2<br>
-                    фото1<br>
-                    фото2<br>
-                    <br>
-                    И так далее…</p>
+                <h1>VK API with MVC pattern and extended functions</h1>
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header" id="heading1">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                                    1 задание
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordion">
+                            <div class="card-body">
+                                <p class="">Взять за основу пример `MVС`.<br>
+                                    Добавить вкладку `Группы`, при переходе на вкладку, должен отображаться список групп (лого и имена групп), в которых состоит пользователь
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
-                <p class="">5 задание (со очень большой звездочкой):<br>
-                    Взять за основу результат `ДЗ 4`.<br>
-                    Добавить возможность выбирать сортировку фото в альбомах:<br>
-                    - по количеству комментариев<br>
-                    - по количеству репостов<br>
-                    - по количеству лайков<br>
-                    - по дате добавления</p>
+                    <div class="card">
+                        <div class="card-header" id="heading2">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                    2 задание
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
+                            <div class="card-body">
+                                <p class="">Взять за основу пример `MVС`.<br>
+                                    Добавить вкладку `Фото`, при переходе на вкладку, должны отображаться все фото пользователя с количеством лайков, репостов и комментариев каждого фото.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="heading3">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                    3 задание (со звездочкой)
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
+                            <div class="card-body">
+                                <p class="">Взять за основу результат `ДЗ 2`.<br>
+                                    Во вкладке `Фото`, помимо количества лайков, репостов и комментариев, выводить комментарии к каждому фото. Если комментариев к какому-либо фото нет, то, рядом с соответствующим фото, выводить надпись: `К этому фото нет комментариев.`<br>
+                                    Каждый комментарий - это фото автора, фио автора, дата комментария, текст комментария
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="heading4">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                    4 задание (со большой звездочкой)
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordion">
+                            <div class="card-body">
+                                <p class="">Взять за основу результат `ДЗ 3`.<br>
+                                    Вместо обычного списка всех фото, выводить фото, сгруппированные по альбомам, в которых они состоят.<br>
+                                    Например:<br>
+                                    Альбом1<br>
+                                    фото1<br>
+                                    фото2<br>
+                                    фото3<br>
+                                    <br>
+                                    Альбом2<br>
+                                    фото1<br>
+                                    фото2<br>
+                                    <br>
+                                    И так далее…</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header" id="heading5">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                    5 задание (со очень большой звездочкой)
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordion">
+                            <div class="card-body">
+                                <p class="">.Взять за основу результат `ДЗ 4`.<br>
+                                    Добавить возможность выбирать сортировку фото в альбомах:<br>
+                                    - по количеству комментариев<br>
+                                    - по количеству репостов<br>
+                                    - по количеству лайков<br>
+                                    - по дате добавления</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
 
                 <p class="">Сортировка должно происходить на стороне вашего приложения, а не при помощи ВКонтакте.</p>
-
                 <p class="">Верстка остается на ваше усмотрение.</p>
             </div>
-
-            <
+            <div class="col-12">
+                <h2 id="currentUser"></h2>
+                <div class="btn-group btn-group-lg mainControl">
+                    <button type="button" class="btn btn-secondary" data-action="friends">Друзья</button>
+                    <button type="button" class="btn btn-secondary" data-action="news">Новости</button>
+                </div>
+                <hr>
+                <div id="results"></div>
+            </div>
         </div>
     </div>
 </section>
@@ -69,11 +141,46 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
-
+<script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
 
 
 <script src="http://pro.qoobeo.ru/qsvgl/js/qoobloader.js"></script>
-<script src="my.js"></script>
+
+
+<script src="js/myModel.js"></script>
+<script src="js/myView.js"></script>
+<script src="js/myController.js"></script>
+<script src="js/myRouter.js"></script>
+<script src="js/myEntry.js"></script>
+<script src="js/my.js"></script>
+
+
+<!-- Handlebars TPL -->
+<script type="text/x-handlebars-template" id="headerTemplate">Данные из VK-аккаунта: {{first_name}} {{last_name}}</script>
+
+<script type="text/x-handlebars-template" id="friendsTemplate">
+        {{#each list}}
+        <div class="friend text-center">
+            <img src="{{photo_100}}" class="img-circle">
+            <div>{{first_name}}<br>{{last_name}}</div>
+        </div>
+        {{/each}}
+</script>
+
+<script type="text/x-handlebars-template" id="newsTemplate">
+    <div class="news">
+        {{#each list}}
+        {{#if text}}
+        <div class="post">
+            <b>{{formatDate date}}</b>
+            <div class="post-text">{{{text}}}</div>
+        </div>
+        <hr>
+        {{/if}}
+        {{/each}}
+    </div>
+</script>
+<!-- END Handlebars TPL -->
 
 </body>
 </html>
