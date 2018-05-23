@@ -17,8 +17,6 @@
         <div class="row">
             <div class="col-12">
                 <h1>VK API with MVC pattern and extended functions</h1>
-
-
                 <div id="accordionMain">
                     <div class="card">
                         <div class="card-header" id="heading1">
@@ -42,7 +40,7 @@
                                         </div>
                                         <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordion">
                                             <div class="card-body">
-                                                <p class="">Взять за основу пример `MVС`.<br>
+                                                <p class="done">Взять за основу пример `MVС`.<br>
                                                     Добавить вкладку `Группы`, при переходе на вкладку, должен отображаться список групп (лого и имена групп), в которых состоит пользователь
                                                 </p>
                                             </div>
@@ -59,7 +57,7 @@
                                         </div>
                                         <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordion">
                                             <div class="card-body">
-                                                <p class="">Взять за основу пример `MVС`.<br>
+                                                <p class="done">Взять за основу пример `MVС`.<br>
                                                     Добавить вкладку `Фото`, при переходе на вкладку, должны отображаться все фото пользователя с количеством лайков, репостов и комментариев каждого фото.
                                                 </p>
                                             </div>
@@ -127,6 +125,7 @@
                                                     - по количеству репостов<br>
                                                     - по количеству лайков<br>
                                                     - по дате добавления</p>
+                                                <p class="">Сортировка должно происходить на стороне вашего приложения, а не при помощи ВКонтакте.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -134,23 +133,23 @@
                                 </div>
                                 <!-- End inner accordion -->
 
-                                <p class="">Сортировка должно происходить на стороне вашего приложения, а не при помощи ВКонтакте.</p>
+
                                 <p class="">Верстка остается на ваше усмотрение.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
-
-
             </div>
+
             <div class="col-12">
                 <h2 id="currentUser"></h2>
                 <div class="btn-group btn-group-lg mainControl">
                     <button type="button" class="btn btn-secondary" data-action="friends">Друзья</button>
                     <button type="button" class="btn btn-secondary" data-action="news">Лента ваших новостей</button>
                     <button type="button" class="btn btn-secondary" data-action="groups">Группы</button>
+                    <button type="button" class="btn btn-secondary" data-action="photos">Фото (аватарки)</button>
+                    <button type="button" class="btn btn-secondary" data-action="albums">Альбомы (все фото из альбомов)</button>
                 </div>
                 <hr>
                 <div id="results" class="results"></div>
@@ -160,28 +159,27 @@
 </section>
 
 
-
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
-<script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
-
-
-<script src="http://pro.qoobeo.ru/qsvgl/js/qoobloader.js"></script>
+<footer>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+    <script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>
 
 
-<script src="js/myModel.js"></script>
-<script src="js/myView.js"></script>
-<script src="js/myController.js"></script>
-<script src="js/myRouter.js"></script>
-<script src="js/myEntry.js"></script>
-<script src="js/my.js"></script>
+    <script src="http://pro.qoobeo.ru/qsvgl/js/qoobloader.js"></script>
 
+
+    <script src="js/myModel.js"></script>
+    <script src="js/myView.js"></script>
+    <script src="js/myController.js"></script>
+    <script src="js/myRouter.js"></script>
+    <script src="js/myEntry.js"></script>
+    <script src="js/my.js"></script>
+</footer>
 
 <!-- Handlebars TPL -->
 <script type="text/x-handlebars-template" id="headerTemplate">Данные из VK-аккаунта: {{first_name}} {{last_name}}</script>
-
 
 <script type="text/x-handlebars-template" id="friendsTemplate">
         <div class="friendsList grid">
@@ -214,6 +212,47 @@
         <div class="group item">
             <img src="{{photo_100}}" class="rounded-circle photo100">
             <p>{{name}}</p>
+        </div>
+        {{/each}}
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="photosTemplate">
+    <div class="photos grid">
+        {{#each list}}
+        <div class="photo item">
+            <img src="{{photo_130}}" class="rounded-circle photo100">
+            <p>{{name}}</p>
+        </div>
+        {{/each}}
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="albumPhotosTemplate">
+    {{#each list}}
+    <div class="photo photoInBanch item">
+        <div class="photo_desc">
+            <img src="{{photo_130}}" class="rounded-circle photo100">
+            <div class="photo_info">
+                <div class="like">{{likes.count}}</div>
+                <div class="repost">{{reposts.count}}</div>
+                <div class="comments">{{comments.count}}</div>
+            </div>
+        </div>
+
+        <p>{{text}}</p>
+    </div>
+    {{/each}}
+</script>
+
+<script type="text/x-handlebars-template" id="albumsTemplate">
+    <div class="photos grid">
+        {{#each list}}
+        <div class="photo item">
+            <img src="{{photo_130}}" class="rounded-circle photo100">
+            <p>{{title}}</p>
+            <p>{{description}}</p>
+            <p>ID: {{id}}</p>
         </div>
         {{/each}}
     </div>

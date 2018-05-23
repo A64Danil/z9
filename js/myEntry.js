@@ -2,11 +2,6 @@ document.addEventListener('click', function (e) {
     if (e.target.dataset.action && e.target.parentNode.classList.contains('mainControl') ) {
         Router.handle(e.target.dataset.action);
     }
-    else {
-        console.log('У этого элемента нет параметра action');
-    }
-
-
 })
 
 Handlebars.registerHelper('formatTime', function(time) {

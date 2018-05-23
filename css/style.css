@@ -1,6 +1,6 @@
 p.done {color: #7f7f7f;}
 p.done:after {
-    content: " - готово";
+    content: " - РіРѕС‚РѕРІРѕ";
     font-weight: bold;
     color: #444;
 }
@@ -27,3 +27,19 @@ p.done:after {
 .results .friendsList .friend {flex-basis: 120px;}
 
 .results .groups .group {    flex-basis: 180px; padding: 0 10px 10px;}
+
+.results .allphotos .photoInBanch ul {text-align: left;}
+.results .allphotos .item p { max-width: 200px;}
+
+
+.results .allphotos .photoInBanch .photo_desc {margin-right: 20px;}
+.results .allphotos .photoInBanch .photo_desc {display: flex; flex-wrap: wrap; flex-direction: row;align-items: center;}
+.results .allphotos .photoInBanch .photo_desc img {margin-right: 10px;}
+
+.results .allphotos .photo_info {text-align: left;}
+.results .allphotos .photo_info > div {color: #8e97a1; background-repeat: no-repeat;
+    padding-left: 35px;
+    font-weight: 500;}
+.results .allphotos .photo_info .like {background-image: url(../img/ico/vk_like.svg);}
+.results .allphotos .photo_info .repost {background-image: url(../img/ico/vk_share.svg);}
+.results .allphotos .photo_info .comments {background-image: url(../img/ico/vk_comment.svg);}

@@ -35,7 +35,6 @@ var Model = {
         return this.myCallApi('users.get', {});
     },
     getFriends() {
-        console.log('Вы внутри Модели, пытаетесь выполнить getFriends');
         return this.myCallApi('friends.get', {fields: 'photo_100'});
     },
     getNews() {
@@ -43,7 +42,15 @@ var Model = {
     },
     getGroups() {
         return this.myCallApi('groups.get', {extended: 1});
+    },
+    getPhotos(albumId =  'profile') {
+        console.log('Внутри getPhotos, albumId=' + albumId)
+        return this.myCallApi('photos.get', {extended: 1, album_id: albumId});
+    },
+    getAlbums() {
+        return this.myCallApi('photos.getAlbums', {extended: 1});
     }
+    //TODO: в этом месте создать новый метод .getAlbumPhotos с выводом названия альбома и фото
 };
 
 
