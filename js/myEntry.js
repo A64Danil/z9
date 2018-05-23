@@ -27,7 +27,7 @@ new Promise(function (resolve) {
     window.onload = resolve;
 })
     .then(function () {
-        return Model.myLogin(6455962, 2 | 4 | 8192)
+        return Model.myLogin(6455962, 2 | 4 | 8192 | 262144)
     })
     .then(function () {
         return Model.getUser().then(function (users) {

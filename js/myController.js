@@ -8,6 +8,11 @@ var Controller = {
         return Model.getNews().then(function(news) {
             results.innerHTML = View.render('news', { list: news.items });
         });
+    },
+    groupsRoute() {
+        return Model.getGroups().then(function(groups) {
+            results.innerHTML = View.render('groups', { list: groups.items });
+        });
     }
 };
 

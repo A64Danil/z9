@@ -40,6 +40,9 @@ var Model = {
     },
     getNews() {
         return this.myCallApi('newsfeed.get', {filters: 'post', count: 20});
+    },
+    getGroups() {
+        return this.myCallApi('groups.get', {extended: 1});
     }
 };
 
