@@ -126,10 +126,10 @@
                 <h2 id="currentUser"></h2>
                 <div class="btn-group btn-group-lg mainControl">
                     <button type="button" class="btn btn-secondary" data-action="friends">Друзья</button>
-                    <button type="button" class="btn btn-secondary" data-action="news">Новости</button>
+                    <button type="button" class="btn btn-secondary" data-action="news">Лента ваших новостей</button>
                 </div>
                 <hr>
-                <div id="results"></div>
+                <div id="results" class="results"></div>
             </div>
         </div>
     </div>
@@ -158,13 +158,16 @@
 <!-- Handlebars TPL -->
 <script type="text/x-handlebars-template" id="headerTemplate">Данные из VK-аккаунта: {{first_name}} {{last_name}}</script>
 
+
 <script type="text/x-handlebars-template" id="friendsTemplate">
-        {{#each list}}
-        <div class="friend text-center">
-            <img src="{{photo_100}}" class="img-circle">
-            <div>{{first_name}}<br>{{last_name}}</div>
+        <div class="friendsList">
+            {{#each list}}
+            <div class="friend text-center">
+                <img src="{{photo_100}}" class="rounded-circle">
+                <div>{{first_name}}<br>{{last_name}}</div>
+            </div>
+            {{/each}}
         </div>
-        {{/each}}
 </script>
 
 <script type="text/x-handlebars-template" id="newsTemplate">

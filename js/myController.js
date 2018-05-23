@@ -1,7 +1,7 @@
 var Controller = {
     friendsRoute() {
         return Model.getFriends().then(function(friends) {
-            results.innerHTML = View.render('friends', { list: friends });
+            results.innerHTML = View.render('friends', { list: friends.items });
         });
     },
     newsRoute() {

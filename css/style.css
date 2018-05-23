@@ -13,3 +13,7 @@ p.done:after {
 .card .card-body {
     padding: 20px;
 }
+
+.results .friendsList {display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;}

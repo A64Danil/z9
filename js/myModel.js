@@ -34,10 +34,12 @@ var Model = {
     getUser() {
         return this.myCallApi('users.get', {});
     },
-
     getFriends() {
         console.log('Вы внутри Модели, пытаетесь выполнить getFriends');
         return this.myCallApi('friends.get', {fields: 'photo_100'});
+    },
+    getNews() {
+        return this.myCallApi('newsfeed.get', {filters: 'post', count: 20});
     }
 };
 
