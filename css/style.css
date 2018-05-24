@@ -14,7 +14,7 @@ p.done:after {
     padding: 20px;
 }
 
-.results .grid {display: flex;
+.results .grid, .results .albums .album__photos {display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;}
@@ -32,14 +32,27 @@ p.done:after {
 .results .allphotos .item p { max-width: 200px;}
 
 
-.results .allphotos .photoInBanch .photo_desc {margin-right: 20px;}
-.results .allphotos .photoInBanch .photo_desc {display: flex; flex-wrap: wrap; flex-direction: row;align-items: center;}
-.results .allphotos .photoInBanch .photo_desc img {margin-right: 10px;}
+.results .photo_desc {margin-right: 20px;}
+.results .photo_desc {display: flex; flex-wrap: wrap; flex-direction: row;align-items: center;}
+.results .photo_desc img {margin-right: 10px;}
 
-.results .allphotos .photo_info {text-align: left;}
-.results .allphotos .photo_info > div {color: #8e97a1; background-repeat: no-repeat;
+.results .photo_info {text-align: left;}
+.results .photo_info > div {color: #8e97a1; background-repeat: no-repeat;
     padding-left: 35px;
     font-weight: 500;}
-.results .allphotos .photo_info .like {background-image: url(../img/ico/vk_like.svg);}
-.results .allphotos .photo_info .repost {background-image: url(../img/ico/vk_share.svg);}
-.results .allphotos .photo_info .comments {background-image: url(../img/ico/vk_comment.svg);}
+.results .photo_info .like {background-image: url(../img/ico/vk_like.svg);}
+.results .photo_info .repost {background-image: url(../img/ico/vk_share.svg);}
+.results .photo_info .comments {background-image: url(../img/ico/vk_comment.svg);}
+
+.results .albums {flex-direction: column;}
+.results .albums .album {}
+.results .albums .album .h3 {text-align: left;}
+.results .albums .album .h3:first-letter {text-transform: uppercase;}
+.results .albums .album .h3 span {font-size: 20px; color: #888;}
+
+.results .albums .album .photos {justify-content: flex-start;}
+.results .albums .album .photos .photo {width: 180px;}
+
+.results .albums .album__photos {justify-content: flex-start;display: flex;
+    flex-wrap: wrap;}
+.results .albums .album__photos .photo {width: 180px;}

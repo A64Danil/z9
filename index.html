@@ -179,84 +179,104 @@
 </footer>
 
 <!-- Handlebars TPL -->
-<script type="text/x-handlebars-template" id="headerTemplate">Данные из VK-аккаунта: {{first_name}} {{last_name}}</script>
+    <script type="text/x-handlebars-template" id="headerTemplate">Данные из VK-аккаунта: {{first_name}} {{last_name}}</script>
 
-<script type="text/x-handlebars-template" id="friendsTemplate">
-        <div class="friendsList grid">
+    <script type="text/x-handlebars-template" id="friendsTemplate">
+            <div class="friendsList grid">
+                {{#each list}}
+                <div class="friend item">
+                    <img src="{{photo_100}}" class="rounded-circle photo100">
+                    <p>{{first_name}}<br>{{last_name}}</p>
+                </div>
+                {{/each}}
+            </div>
+    </script>
+
+    <script type="text/x-handlebars-template" id="newsTemplate">
+        <div class="news">
             {{#each list}}
-            <div class="friend item">
+            {{#if text}}
+            <div class="post">
+                <b>{{formatDate date}}</b>
+                <div class="post-text">{{{text}}}</div>
+            </div>
+            <hr>
+            {{/if}}
+            {{/each}}
+        </div>
+    </script>
+
+    <script type="text/x-handlebars-template" id="groupsTemplate">
+        <div class="groups grid">
+            {{#each list}}
+            <div class="group item">
                 <img src="{{photo_100}}" class="rounded-circle photo100">
-                <p>{{first_name}}<br>{{last_name}}</p>
+                <p>{{name}}</p>
             </div>
             {{/each}}
         </div>
-</script>
+    </script>
 
-<script type="text/x-handlebars-template" id="newsTemplate">
-    <div class="news">
-        {{#each list}}
-        {{#if text}}
-        <div class="post">
-            <b>{{formatDate date}}</b>
-            <div class="post-text">{{{text}}}</div>
-        </div>
-        <hr>
-        {{/if}}
-        {{/each}}
-    </div>
-</script>
 
-<script type="text/x-handlebars-template" id="groupsTemplate">
-    <div class="groups grid">
-        {{#each list}}
-        <div class="group item">
-            <img src="{{photo_100}}" class="rounded-circle photo100">
-            <p>{{name}}</p>
-        </div>
-        {{/each}}
-    </div>
-</script>
-
-<script type="text/x-handlebars-template" id="photosTemplate">
-    <div class="photos grid">
-        {{#each list}}
-        <div class="photo item">
-            <img src="{{photo_130}}" class="rounded-circle photo100">
-            <p>{{name}}</p>
-        </div>
-        {{/each}}
-    </div>
-</script>
-
-<script type="text/x-handlebars-template" id="albumPhotosTemplate">
-    {{#each list}}
-    <div class="photo photoInBanch item">
-        <div class="photo_desc">
-            <img src="{{photo_130}}" class="rounded-circle photo100">
-            <div class="photo_info">
-                <div class="like">{{likes.count}}</div>
-                <div class="repost">{{reposts.count}}</div>
-                <div class="comments">{{comments.count}}</div>
+    <!-- Фото аватарок -->
+    <script type="text/x-handlebars-template" id="photosTemplate">
+        <div class="photos grid">
+            {{#each list}}
+            <div class="photo item">
+                <img src="{{photo_130}}" class="rounded-circle photo100">
+                <p>ID: {{id}}</p>
             </div>
+            {{/each}}
         </div>
+    </script>
 
-        <p>{{text}}</p>
-    </div>
-    {{/each}}
-</script>
-
-<script type="text/x-handlebars-template" id="albumsTemplate">
-    <div class="photos grid">
+    <!-- Фото в куче -->
+    <script type="text/x-handlebars-template" id="photoInBanchTemplate">
         {{#each list}}
-        <div class="photo item">
-            <img src="{{photo_130}}" class="rounded-circle photo100">
-            <p>{{title}}</p>
-            <p>{{description}}</p>
-            <p>ID: {{id}}</p>
+        <div class="photo photoInBanch item">
+            <div class="photo_desc">
+                <img src="{{photo_130}}" class="rounded-circle photo100">
+                <div class="photo_info">
+                    <div class="like">{{likes.count}}</div>
+                    <div class="repost">{{reposts.count}}</div>
+                    <div class="comments">{{comments.count}}</div>
+                </div>
+            </div>
+
+            <p>{{text}}</p>
         </div>
         {{/each}}
-    </div>
-</script>
+    </script>
+
+    <!-- Альбом с областью для фото -->
+    <script type="text/x-handlebars-template" id="albumsTemplate">
+        <div class="albums grid">
+            {{#each list}}
+            <div class="album item">
+                <p class="h3">{{title}} <span>{{description}} (ID: {{id}})</span></p>
+                <div  class="album__photos album{{id}}"></div>
+            </div>
+            {{/each}}
+        </div>
+    </script>
+
+    <!-- Фото с комментариями -->
+    <script type="text/x-handlebars-template" id="photosExtTemplate">
+        {{#each list}}
+        <div class="photo item">
+            <div class="photo_desc">
+                <img src="{{photo_130}}" class="rounded-circle photo100">
+                <div class="photo_info">
+                    <div class="like">{{likes.count}}</div>
+                    <div class="repost">{{reposts.count}}</div>
+                    <div class="comments">{{comments.count}}</div>
+                </div>
+            </div>
+
+            <p>{{text}}</p>
+        </div>
+        {{/each}}
+    </script>
 <!-- END Handlebars TPL -->
 
 </body>

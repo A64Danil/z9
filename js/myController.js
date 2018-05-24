@@ -21,7 +21,9 @@ var Controller = {
     },
     albumsRoute() {
         return Model.getAlbums()
+            /*
             .then(function (albums) {
+
                 //TODO: это говнище надо переписать
                 results.innerHTML = null;
                 var allPhotosDiv = document.createElement('div');
@@ -42,10 +44,28 @@ var Controller = {
 
                 //return albums;
             })
+            */
             .then(function(albums) {
-            //TODO: ИЛИ в эом месте вызывать названия и ID всех альбомов, а затем и фото внутри них
-            //TODO: к тому же - "Добавить возможность выбирать сортировку фото в альбомах" - в альбомах, а не во всей куче
-            results.innerHTML = View.render('albums', { list: albums.items });
+
+                console.log(albums.items);
+                results.innerHTML = View.render('albums', { list: albums.items });
+                albums.items.forEach(function(item, i, arr) {
+                    setTimeout(function () {
+                        console.log(item.id);
+                        var currentAlbum = document.querySelector('.album' + item.id)
+                        //console.log(currentAlbum);
+
+                        Model.getPhotos(item.id).then(function(photos) {
+                            currentAlbum.innerHTML += View.render('photosExt', { list: photos.items });
+                        });
+                    }, 200 * ++i)
+
+                });
+                // получили ID всех альбомов, теперь можем вызывать Фотки для каждого альбома и записывать в отдельын дивые
+
+                //TODO: ИЛИ в эом месте вызывать названия и ID всех альбомов, а затем и фото внутри них
+                //TODO: к тому же - "Добавить возможность выбирать сортировку фото в альбомах" - в альбомах, а не во всей куче
+
             })
             ;
     }
