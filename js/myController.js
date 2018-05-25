@@ -19,55 +19,41 @@ var Controller = {
             results.innerHTML = View.render('photos', { list: photos.items });
         });
     },
+    photosExtRoute(albumId, placeToInput) {
+        return Model.getPhotos(albumId).then(function(photos) {
+            placeToInput.innerHTML += View.render('photosExt', { list: photos.items });
+            photos.items.forEach(function (item, i, arr) {
+                setTimeout(function () {
+                    Controller.commentsRoute(item.id);
+                }, 2000 * ++i)
+
+            });
+        });
+    },
+    commentsRoute(photoId) {
+        return Model.getPhotoComments(photoId).then(function (comments) {
+            var place = document.querySelector('.photo'+ photoId +' .photo_comments')
+
+            if (comments.count > 0) {
+                console.log(place);
+                console.log(comments);
+            }
+        });
+    },
     albumsRoute() {
         return Model.getAlbums()
-            /*
-            .then(function (albums) {
-
-                //TODO: это говнище надо переписать
-                results.innerHTML = null;
-                var allPhotosDiv = document.createElement('div');
-                allPhotosDiv.setAttribute('class', 'photos allphotos grid')
-                results.appendChild(allPhotosDiv);
-
-                albums.items.forEach(function(item, i, arr) {
-                    setTimeout(function () {
-                        console.log(item.id);
-
-                        //TODO: в этом месте запрашивать новый метод .getAlbumPhotos с выводом названия альбома и фото
-                        Model.getPhotos(item.id).then(function(photos) {
-                            allPhotosDiv.innerHTML += View.render('albumPhotos', { list: photos.items });
-                        });
-                    }, 150 * ++i)
-
-                });
-
-                //return albums;
-            })
-            */
             .then(function(albums) {
-
                 console.log(albums.items);
                 results.innerHTML = View.render('albums', { list: albums.items });
                 albums.items.forEach(function(item, i, arr) {
                     setTimeout(function () {
-                        console.log(item.id);
-                        var currentAlbum = document.querySelector('.album' + item.id)
-                        //console.log(currentAlbum);
-
-                        Model.getPhotos(item.id).then(function(photos) {
-                            currentAlbum.innerHTML += View.render('photosExt', { list: photos.items });
-                        });
-                    }, 200 * ++i)
-
+                        //console.log(item.id); // <== ID of currentAlbum
+                        var currentAlbum = document.querySelector('.album' + item.id);
+                        Controller.photosExtRoute(item.id, currentAlbum);
+                    }, 2000 * ++i)
                 });
-                // получили ID всех альбомов, теперь можем вызывать Фотки для каждого альбома и записывать в отдельын дивые
-
-                //TODO: ИЛИ в эом месте вызывать названия и ID всех альбомов, а затем и фото внутри них
-                //TODO: к тому же - "Добавить возможность выбирать сортировку фото в альбомах" - в альбомах, а не во всей куче
 
             })
-            ;
     }
 };
 

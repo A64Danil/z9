@@ -49,8 +49,11 @@ var Model = {
     },
     getAlbums() {
         return this.myCallApi('photos.getAlbums', {extended: 1});
+    },
+    getPhotoComments(photoId) {
+        return this.myCallApi('photos.getComments', {need_likes: 1, photo_id: photoId, extended: 1});
     }
-    //TODO: в этом месте создать новый метод .getAlbumPhotos с выводом названия альбома и фото
+    //TODO: в этом месте создать новый метод getPhotoComments (photos.getComments) с выводом комментариев
 };
 
 

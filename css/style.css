@@ -32,7 +32,7 @@ p.done:after {
 .results .allphotos .item p { max-width: 200px;}
 
 
-.results .photo_desc {margin-right: 20px;}
+.results .photo_desc {margin:0 20px 10px 0;}
 .results .photo_desc {display: flex; flex-wrap: wrap; flex-direction: row;align-items: center;}
 .results .photo_desc img {margin-right: 10px;}
 
@@ -43,6 +43,12 @@ p.done:after {
 .results .photo_info .like {background-image: url(../img/ico/vk_like.svg);}
 .results .photo_info .repost {background-image: url(../img/ico/vk_share.svg);}
 .results .photo_info .comments {background-image: url(../img/ico/vk_comment.svg);}
+
+
+.results .photo_text {font-size: 18px;margin-bottom: 2px;}
+.results .photo_comments {font-size: 16px;}
+
+
 
 .results .albums {flex-direction: column;}
 .results .albums .album {}
@@ -55,4 +61,4 @@ p.done:after {
 
 .results .albums .album__photos {justify-content: flex-start;display: flex;
     flex-wrap: wrap;}
-.results .albums .album__photos .photo {width: 180px;}
+.results .albums .album__photos .photo {width: 220px;text-align: left;}

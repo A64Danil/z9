@@ -263,7 +263,7 @@
     <!-- Фото с комментариями -->
     <script type="text/x-handlebars-template" id="photosExtTemplate">
         {{#each list}}
-        <div class="photo item">
+        <div class="photo photo{{id}} item">
             <div class="photo_desc">
                 <img src="{{photo_130}}" class="rounded-circle photo100">
                 <div class="photo_info">
@@ -273,7 +273,16 @@
                 </div>
             </div>
 
-            <p>{{text}}</p>
+            <p class="photo_text">Подпись: {{text}}</p>
+
+            <p class="photo_comments">
+                {{#iff comments.count '>' 0}}
+                    Комментариев 1 или больше
+                {{else}}
+                    Комментариев нет
+                {{/iff}}
+            </p>
+
         </div>
         {{/each}}
     </script>
