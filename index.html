@@ -260,10 +260,10 @@
         </div>
     </script>
 
-    <!-- Фото с комментариями -->
+    <!-- Фото с местом под комментарии -->
     <script type="text/x-handlebars-template" id="photosExtTemplate">
         {{#each list}}
-        <div class="photo photo{{id}} item">
+        <div class="photo photo{{id}} item {{#iff comments.count '>' 0}}extended_photo{{/iff}}">
             <div class="photo_desc">
                 <img src="{{photo_130}}" class="rounded-circle photo100">
                 <div class="photo_info">
@@ -286,6 +286,28 @@
         </div>
         {{/each}}
     </script>
+
+    <!-- Комментариями к фото -->
+    <script type="text/x-handlebars-template" id="commentsToPhotosTemplate">
+        {{#each list}}
+        <div class="comment fromId{{from_id}}">
+            <div class="fromImg"></div>
+            <div class="text">
+                <p class="fromName"></p>
+                <p>{{text}}</p>
+                <p class="date">{{formatDate date}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+
+    <!-- Фото авторы комментариев-->
+    <script type="text/x-handlebars-template" id="imgAuthorsOfCommentsTemplate">
+        <img src="{{photo_50}}" class="img-fluid">
+    </script>
+
+    <!-- Имя авторы комментариев-->
+    <script type="text/x-handlebars-template" id="nameAuthorsOfCommentsTemplate">{{first_name}} {{last_name}}</script>
 <!-- END Handlebars TPL -->
 
 </body>

@@ -47,6 +47,11 @@ p.done:after {
 
 .results .photo_text {font-size: 18px;margin-bottom: 2px;}
 .results .photo_comments {font-size: 16px;}
+.results .photo_comments .comment {display: flex;flex-wrap: wrap;}
+.results .photo_comments .comment:nth-child(even) {background-color: #ddd;}
+
+.results .photo_comments .comment .fromImg{width: 50px; padding-right: 4px; border-radius: 100px;}
+.results .photo_comments .comment .text {width: 120px;}
 
 
 
@@ -62,3 +67,7 @@ p.done:after {
 .results .albums .album__photos {justify-content: flex-start;display: flex;
     flex-wrap: wrap;}
 .results .albums .album__photos .photo {width: 220px;text-align: left;}
+
+.results .albums .album__photos .photo.extended_photo {width: 440px;text-align: left;}
+
+.results .photo.extended_photo .photo_comments .comment .text {width: 320px;}

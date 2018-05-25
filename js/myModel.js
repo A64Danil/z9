@@ -25,7 +25,7 @@ var Model = {
                     reject(new Error(data.error.error_msg));
                 } else {
                     resolve(data.response);
-                    console.log(data.response);
+                    //console.log(data.response); // <== Transfered Data
                 }
             });
         });
@@ -44,7 +44,7 @@ var Model = {
         return this.myCallApi('groups.get', {extended: 1});
     },
     getPhotos(albumId =  'profile') {
-        console.log('Внутри getPhotos, albumId=' + albumId)
+        //console.log('Внутри getPhotos, albumId=' + albumId)
         return this.myCallApi('photos.get', {extended: 1, album_id: albumId});
     },
     getAlbums() {
@@ -53,7 +53,6 @@ var Model = {
     getPhotoComments(photoId) {
         return this.myCallApi('photos.getComments', {need_likes: 1, photo_id: photoId, extended: 1});
     }
-    //TODO: в этом месте создать новый метод getPhotoComments (photos.getComments) с выводом комментариев
 };
 
 

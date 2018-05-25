@@ -25,7 +25,7 @@ var Controller = {
             photos.items.forEach(function (item, i, arr) {
                 setTimeout(function () {
                     Controller.commentsRoute(item.id);
-                }, 2000 * ++i)
+                }, 5000 * ++i)
 
             });
         });
@@ -33,10 +33,23 @@ var Controller = {
     commentsRoute(photoId) {
         return Model.getPhotoComments(photoId).then(function (comments) {
             var place = document.querySelector('.photo'+ photoId +' .photo_comments')
+            place.innerHTML = View.render('commentsToPhotos', { list: comments.items });
+
+            comments.items.forEach(function (item, i, arr) {
+                var placeOfImg = document.querySelector('.fromId'+ item.from_id + ' .fromImg');
+                var placeOfName = document.querySelector('.fromId'+ item.from_id + ' .fromName');
+
+                comments.profiles.forEach(function (profile, i, arr) {
+                    if (profile.id == item.from_id) {
+                        placeOfImg.innerHTML  = View.render('imgAuthorsOfComments', profile);
+                        placeOfName.innerHTML  = View.render('nameAuthorsOfComments', profile);
+                    }
+                });
+            });
 
             if (comments.count > 0) {
-                console.log(place);
-                console.log(comments);
+                //console.log(place);
+                //console.log(comments);
             }
         });
     },
@@ -50,7 +63,7 @@ var Controller = {
                         //console.log(item.id); // <== ID of currentAlbum
                         var currentAlbum = document.querySelector('.album' + item.id);
                         Controller.photosExtRoute(item.id, currentAlbum);
-                    }, 2000 * ++i)
+                    }, 500 * ++i)
                 });
 
             })
