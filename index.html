@@ -254,7 +254,8 @@
             {{#each list}}
             <div class="album item">
                 <p class="h3">{{title}} <span>{{description}} (ID: {{id}})</span></p>
-                <div  class="album__photos album{{id}}"></div>
+                <div  class="album__photos album{{id}}">
+                </div>
             </div>
             {{/each}}
         </div>
@@ -263,9 +264,9 @@
     <!-- Фото с местом под комментарии -->
     <script type="text/x-handlebars-template" id="photosExtTemplate">
         {{#each list}}
-        <div class="photo photo{{id}} item {{#iff comments.count '>' 0}}extended_photo{{/iff}}">
+        <div class="photo photo{{id}} item {{#iff comments.count '>' 0}}extended_photo{{/iff}}"  style="background-image: url({{photo_130}})">
             <div class="photo_desc">
-                <img src="{{photo_130}}" class="rounded-circle photo100">
+                <!-- <img src="{{photo_130}}" class="NOT-rounded-circle photo100"> -->
                 <div class="photo_info">
                     <div class="like">{{likes.count}}</div>
                     <div class="repost">{{reposts.count}}</div>
@@ -273,16 +274,15 @@
                 </div>
             </div>
 
-            <p class="photo_text">Подпись: {{text}}</p>
+            <p class="photo_text {{#if text}}filled{{/if}}">{{text}}</p>
 
             <p class="photo_comments">
                 {{#iff comments.count '>' 0}}
-                    Комментариев 1 или больше
+                    Подождите, скоро комментарии загрузятся
                 {{else}}
                     Комментариев нет
                 {{/iff}}
             </p>
-
         </div>
         {{/each}}
     </script>
@@ -293,9 +293,8 @@
         <div class="comment fromId{{from_id}}">
             <div class="fromImg"></div>
             <div class="text">
-                <p class="fromName"></p>
+                <p><span  class="fromName"></span><span class="date">{{formatDate date}}</span></p>
                 <p>{{text}}</p>
-                <p class="date">{{formatDate date}}</p>
             </div>
         </div>
         {{/each}}

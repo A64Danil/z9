@@ -23,10 +23,11 @@ var Controller = {
         return Model.getPhotos(albumId).then(function(photos) {
             placeToInput.innerHTML += View.render('photosExt', { list: photos.items });
             photos.items.forEach(function (item, i, arr) {
-                setTimeout(function () {
-                    Controller.commentsRoute(item.id);
-                }, 5000 * ++i)
-
+                if (item.comments.count > 0) {
+                    setTimeout(function () {
+                        Controller.commentsRoute(item.id);
+                    }, 3000 * ++i)
+                }
             });
         });
     },
@@ -36,6 +37,7 @@ var Controller = {
             place.innerHTML = View.render('commentsToPhotos', { list: comments.items });
 
             comments.items.forEach(function (item, i, arr) {
+                //console.log(item);
                 var placeOfImg = document.querySelector('.fromId'+ item.from_id + ' .fromImg');
                 var placeOfName = document.querySelector('.fromId'+ item.from_id + ' .fromName');
 
@@ -63,7 +65,7 @@ var Controller = {
                         //console.log(item.id); // <== ID of currentAlbum
                         var currentAlbum = document.querySelector('.album' + item.id);
                         Controller.photosExtRoute(item.id, currentAlbum);
-                    }, 500 * ++i)
+                    }, 1200 * ++i)
                 });
 
             })
