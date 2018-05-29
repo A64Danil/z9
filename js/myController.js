@@ -37,14 +37,24 @@ var Controller = {
             place.innerHTML = View.render('commentsToPhotos', { list: comments.items });
 
             comments.items.forEach(function (item, i, arr) {
-                //console.log(item);
-                var placeOfImg = document.querySelector('.fromId'+ item.from_id + ' .fromImg');
-                var placeOfName = document.querySelector('.fromId'+ item.from_id + ' .fromName');
+                // This is collection, not a single node
+                var placesOfImg = document.querySelectorAll('.photo'+ photoId + ' .fromId'+ item.from_id + ' .fromImg');
+                var placesOfName = document.querySelectorAll('.photo'+ photoId + ' .fromId'+ item.from_id + ' .fromName');
+                //console.log(placesOfImg);
 
                 comments.profiles.forEach(function (profile, i, arr) {
                     if (profile.id == item.from_id) {
-                        placeOfImg.innerHTML  = View.render('imgAuthorsOfComments', profile);
-                        placeOfName.innerHTML  = View.render('nameAuthorsOfComments', profile);
+                        placesOfImg.forEach(function(placeOfImg, i, arr) {
+                            placeOfImg.innerHTML = View.render('imgAuthorsOfComments', profile);
+                        });
+
+                        placesOfName.forEach(function(placeOfName, i, arr) {
+                            placeOfName.innerHTML = View.render('nameAuthorsOfComments', profile);
+                        });
+
+                        // OLD WAY
+                        //placeOfImg.innerHTML  = View.render('imgAuthorsOfComments', profile);
+                        //placeOfName.innerHTML  = View.render('nameAuthorsOfComments', profile);
                     }
                 });
             });
