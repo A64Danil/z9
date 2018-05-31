@@ -14,6 +14,10 @@ p.done:after {
     padding: 20px;
 }
 
+
+.mainControl {flex-wrap: wrap;}
+
+
 .results .grid, .results .albums .album__photos {display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -81,7 +85,7 @@ p.done:after {
 
 
 .results .albums {flex-direction: column;}
-.results .albums .album {}
+.results .albums .album {padding-bottom: 40px;}
 .results .albums .album .h3 {text-align: left;}
 .results .albums .album .h3:first-letter {text-transform: uppercase;}
 .results .albums .album .h3 span {font-size: 20px; color: #888;}
@@ -90,9 +94,28 @@ p.done:after {
 .results .albums .album .albumSortControl  {display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 8px 0;}
-.results .albums .album .albumSortControl .h4 {margin-right: 10px; }
-.results .albums .album .albumSortControl .btn {padding: 5px; font-size: 18px;}
+    margin: 8px 0;
+    flex-wrap: wrap;
+}
+.results .albums .album .albumSortControl .h5 {margin: 0 10px 0 0;}
+.results .albums .album .albumSortControl .btn {padding: 5px; font-size: 16px;}
+
+.albumSortControl .btn[data-sortdir]::after {
+    content: ' ';
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 4px -6px 2px;
+}
+
+.albumSortControl .btn[data-sortdir=direct]::after { background-image: url(../img/ico/sort-from-small.png);  }
+.albumSortControl .btn[data-sortdir=reverse]::after { background-image: url(../img/ico/sort-from-big.png);  }
+
+
+.albumSortControl .albumSortBtns {flex-wrap: wrap;}
+
 
 
 
@@ -133,3 +156,9 @@ p.done:after {
 .results .albums .album__photos .photo.extended_photo {width: 440px;}
 
 .results .photo.extended_photo .photo_comments .comment .text {width: 320px;}
+
+@media (max-width: 767px) {
+    .mainControl {    flex-direction: column}
+
+}
+

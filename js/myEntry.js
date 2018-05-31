@@ -65,3 +65,9 @@ new Promise(function (resolve) {
         console.error(e);
         console.info('Ошибка: ' + e.message);
     })
+
+
+$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+});

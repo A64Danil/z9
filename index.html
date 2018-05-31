@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>VK API with MVC pattern and extended functions</title>
-
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="http://pro.qoobeo.ru/qsvgl/css/qoobloader.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -119,7 +122,7 @@
                                         </div>
                                         <div id="collapse5" class="collapse" aria-labelledby="heading5" data-parent="#accordion">
                                             <div class="card-body">
-                                                <p class="">.Взять за основу результат `ДЗ 4`.<br>
+                                                <p class="done">.Взять за основу результат `ДЗ 4`.<br>
                                                     Добавить возможность выбирать сортировку фото в альбомах:<br>
                                                     - по количеству комментариев<br>
                                                     - по количеству репостов<br>
@@ -168,6 +171,8 @@
 
 
     <script src="http://pro.qoobeo.ru/qsvgl/js/qoobloader.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
 
 
     <script src="js/myModel.js"></script>
@@ -255,7 +260,7 @@
             <div class="album item">
                 <p class="h3">{{title}} <span>{{description}} (ID: {{id}})</span></p>
                 <div class="albumSortControl">
-                    <p class="h4">Сортировать по:</p>
+                    <p class="h5">Сортировать по:</p>
                     <div class="btn-group btn-group-lg albumSortBtns">
                         <button type="button" class="btn btn-secondary" data-sortby="comments" data-sortdir="direct" title="Упорядочить по возрастанию">Количеству комментариев</button>
                         <button type="button" class="btn btn-secondary" data-sortby="reposts" data-sortdir="direct" title="Упорядочить по возрастанию">Количеству репостов</button>
@@ -274,7 +279,7 @@
     <!-- Фото с местом под комментарии -->
     <script type="text/x-handlebars-template" id="photosExtTemplate">
         {{#each list}}
-        <div class="photo photo{{id}} item {{#iff comments.count '>' 0}}extended_photo{{/iff}}" title="Добавлена {{formatDate date}}"
+        <a href="{{#if photo_807}} {{photo_807}} {{else}} {{photo_604}} {{/if}} " data-toggle="lightbox" data-gallery="gallery{{album_id}}"  class="photo photo{{id}} item {{#iff comments.count '>' 0}}extended_photo{{/iff}}" title="Добавлена {{formatDate date}}"
              data-publishedon="{{date}}" data-likes="{{likes.count}}" data-reposts="{{reposts.count}}" data-comments="{{comments.count}}"
              style="background-image: url({{photo_130}})">
             <div class="photo_desc">
@@ -295,7 +300,7 @@
                     Комментариев нет
                 {{/iff}}
             </p>
-        </div>
+        </a>
         {{/each}}
     </script>
 
