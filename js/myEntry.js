@@ -2,6 +2,11 @@ document.addEventListener('click', function (e) {
     if (e.target.dataset.action && e.target.parentNode.classList.contains('mainControl') ) {
         Router.handle(e.target.dataset.action);
     }
+
+    if (e.target.dataset.sortby && e.target.parentNode.classList.contains('albumSortBtns') ) {
+        console.log('отловили событие на кнопках сортировка');
+        Controller.photoSorting(e.target);
+    }
 })
 
 Handlebars.registerHelper('formatTime', function(time) {

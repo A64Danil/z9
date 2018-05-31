@@ -74,7 +74,7 @@
                                         </div>
                                         <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordion">
                                             <div class="card-body">
-                                                <p class="">Взять за основу результат `ДЗ 2`.<br>
+                                                <p class="done">Взять за основу результат `ДЗ 2`.<br>
                                                     Во вкладке `Фото`, помимо количества лайков, репостов и комментариев, выводить комментарии к каждому фото. Если комментариев к какому-либо фото нет, то, рядом с соответствующим фото, выводить надпись: `К этому фото нет комментариев.`<br>
                                                     Каждый комментарий - это фото автора, фио автора, дата комментария, текст комментария
                                                 </p>
@@ -92,7 +92,7 @@
                                         </div>
                                         <div id="collapse4" class="collapse" aria-labelledby="heading4" data-parent="#accordion">
                                             <div class="card-body">
-                                                <p class="">Взять за основу результат `ДЗ 3`.<br>
+                                                <p class="done">Взять за основу результат `ДЗ 3`.<br>
                                                     Вместо обычного списка всех фото, выводить фото, сгруппированные по альбомам, в которых они состоят.<br>
                                                     Например:<br>
                                                     Альбом1<br>
@@ -254,6 +254,16 @@
             {{#each list}}
             <div class="album item">
                 <p class="h3">{{title}} <span>{{description}} (ID: {{id}})</span></p>
+                <div class="albumSortControl">
+                    <p class="h4">Сортировать по:</p>
+                    <div class="btn-group btn-group-lg albumSortBtns">
+                        <button type="button" class="btn btn-secondary" data-sortby="comments" data-sortdir="direct" title="Упорядочить по возрастанию">Количеству комментариев</button>
+                        <button type="button" class="btn btn-secondary" data-sortby="reposts" data-sortdir="direct" title="Упорядочить по возрастанию">Количеству репостов</button>
+                        <button type="button" class="btn btn-secondary" data-sortby="likes" data-sortdir="direct" title="Упорядочить по возрастанию">Количеству лайков</button>
+                        <button type="button" class="btn btn-secondary" data-sortby="publishedon" data-sortdir="direct" title="Упорядочить по возрастанию">Дате добавления</button>
+                    </div>
+                </div>
+
                 <div  class="album__photos album{{id}}">
                 </div>
             </div>
@@ -264,7 +274,9 @@
     <!-- Фото с местом под комментарии -->
     <script type="text/x-handlebars-template" id="photosExtTemplate">
         {{#each list}}
-        <div class="photo photo{{id}} item {{#iff comments.count '>' 0}}extended_photo{{/iff}}"  style="background-image: url({{photo_130}})">
+        <div class="photo photo{{id}} item {{#iff comments.count '>' 0}}extended_photo{{/iff}}" title="Добавлена {{formatDate date}}"
+             data-publishedon="{{date}}" data-likes="{{likes.count}}" data-reposts="{{reposts.count}}" data-comments="{{comments.count}}"
+             style="background-image: url({{photo_130}})">
             <div class="photo_desc">
                 <!-- <img src="{{photo_130}}" class="NOT-rounded-circle photo100"> -->
                 <div class="photo_info">

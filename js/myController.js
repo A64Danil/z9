@@ -79,6 +79,53 @@ var Controller = {
                 });
 
             })
+    },
+    photoSorting(btn) {
+        let sortBy = btn.dataset.sortby,
+            sortDir = btn.dataset.sortdir,
+            currentAlbum = btn.parentNode.parentNode.parentNode, // Current album
+            placeToInput = currentAlbum.querySelector('.album__photos'), // Div with .photo items
+            photoCollection = currentAlbum.querySelectorAll('.photo.item'); // Photo Collection
+
+
+        console.log('Будем сортировать по ' + sortBy);
+        console.log('Направление сортировки - ' + sortDir);
+
+
+
+        let sortedPhotoCollection = [];
+        photoCollection.forEach(function(item, i, arr) {
+            // Наполняем пустой массив Объектами типа { dataAttr: значение атрибута, el: ссылка на элемент }
+            sortedPhotoCollection.push({
+                elData : item.dataset[sortBy], // value of data-attr
+                el: item // link to element
+            })
+        });
+
+
+
+        if (btn.dataset.sortdir == 'direct') {
+            sortedPhotoCollection.sort(function (a, b) {
+                btn.dataset.sortdir = 'reverse';
+                btn.setAttribute('title', 'Упорядочить по убыванию');
+                return a.elData > b.elData ? 1 : -1;   // сравниваем не просто a и b, а их свойства dataAttr (a.dataAttr > b.dataAttr
+            });
+        }
+        else {
+            sortedPhotoCollection.sort(function (a, b) {
+                btn.dataset.sortdir = 'direct';
+                btn.setAttribute('title', 'Упорядочить по возрастанию');
+                return a.elData > b.elData ? -1 : 1;   // сравниваем не просто a и b, а их свойства dataAttr (a.dataAttr > b.dataAttr
+            });
+        }
+
+
+        sortedPhotoCollection.forEach(function (item) {
+            placeToInput.appendChild(item.el);  // Наполняем родителя отсортированными объектами их нашего временного массива
+        })
+
+
+
     }
 };
 

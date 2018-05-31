@@ -86,6 +86,17 @@ p.done:after {
 .results .albums .album .h3:first-letter {text-transform: uppercase;}
 .results .albums .album .h3 span {font-size: 20px; color: #888;}
 
+
+.results .albums .album .albumSortControl  {display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 8px 0;}
+.results .albums .album .albumSortControl .h4 {margin-right: 10px; }
+.results .albums .album .albumSortControl .btn {padding: 5px; font-size: 18px;}
+
+
+
+
 .results .albums .album .photos {justify-content: flex-start;}
 .results .albums .album .photos .photo {width: 180px;}
 
@@ -122,5 +133,3 @@ p.done:after {
 .results .albums .album__photos .photo.extended_photo {width: 440px;}
 
 .results .photo.extended_photo .photo_comments .comment .text {width: 320px;}
-
-
